@@ -1,13 +1,14 @@
+const dotenv = require('dotenv');
+dotenv.config();
 module.exports = {
-    mUrl: 'mqtt://kozmoonot.com',
-    kUrl: 'kozmoonot.com:9092'
+    mUrl: process.env.MQTT_URL,
+    kUrl: process.env.KAFKA_URL,
     options : {
-        clientId: "EmuhurPanel",
-        username: "root",
-        password: "12345",
+        clientId: process.env.MQTT_ID,
+        username: process.env.MQTT_USER,
+        password: process.env.MQTT_PASS,
         clean: true
     },
-
-    mTopic : "data",
-    kTopic : "testTopic"
+    mTopic : process.env.MQTT_TOPIC,
+    kTopic : process.env.KAFKA_TOPIC
 }
